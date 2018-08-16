@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <p>{{ rlt }}</p>
+
+
+    <form action="/select" method="post">
+        {% csrf_token %}
+        <input type="text" name="q">
+        <input type="submit" value="submit" name="search1">
+
+        <select id="first" onChange="change()" name="s1">
+           <option selected="selected">25826936</option>
+           <option>26393342</option>
+           <option>25986330</option>
+           <option>25862578</option>
+           <option>19965972</option>
+            <option>27145908</option>
+            <option>26878904</option>
+            <option>5363651</option>
+        </select>
+
+        <input type="submit" value="submit" name="search2">
+
+    </form>
+
+
+
+</body>
+</html>

@@ -1,0 +1,5 @@
+2018-08-16 05:50:23,197 - testapp.view - INFO - search mode 2, context: 25826936 result: 冰与火之歌
+2018-08-16 05:50:24,419 - testapp.view - INFO - search mode 1, context:  result: book not found
+2018-08-16 05:50:27,432 - testapp.view - INFO - search mode 1, context: 123 result: book not found
+2018-08-16 05:50:32,884 - testapp.view - INFO - search mode 1, context: 123 result: book not found
+2018-08-16 05:50:35,055 - testapp.view - INFO - search mode 1, context: 110 result: try success

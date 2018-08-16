@@ -66,11 +66,18 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 @csrf_exempt
 def terminal_svr(request):
-    # 这里利用了django自身的登陆验证系统
-    if not request.user.is_authenticated():
-        return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/admin/'))
 
-    # doSomething to terminal svr
+    # # 这里利用了django自身的登陆验证系统
+    # if not request.user.is_authenticated():
+    #     return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/admin/'))
+    #
+    # # doSomething to terminal svr
     a = {}
     a["result"] = "post_success"
-    return HttpResponse(json.dumps(a), content_type='application/json')
+    # # return HttpResponse(json.dumps(a), content_type='application/json')
+    return render(request, "ajax.html", a)
+
+
+@csrf_exempt
+def ajax_try(request):
+    return render(request, "ajax2.html")

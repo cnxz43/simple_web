@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>try-ajax2</title>
+    <script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js">
+    </script>
+    <script>
+    $(document).ready(function(){
+        $("button").click(function(){
+                $("#div1").html("success");
+                    {#.load("/try/ajax/demo_test.txt");#}
+            });
+        });
+    </script>
+</head>
+<body>
+
+<h2>AJAX</h2>
+<button>请求数据</button>
+<div id="div1"></div>
+
+</body>
+</html>

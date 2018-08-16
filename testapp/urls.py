@@ -27,5 +27,6 @@ from . import view
 
 urlpatterns = [
     url(r'^select$', view.select_post),
-    url(r'^terminal_svr', view.terminal_svr, name='terminal_svr'),
+    url(r'^terminal_svr$', view.terminal_svr, name='terminal_svr'),
+    url(r'^ajax_try$', view.ajax_try),
 ]

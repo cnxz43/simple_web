@@ -31,4 +31,5 @@ urlpatterns = [
     # url(r'^ajax_try$', view.ajax_try),
     url(r'^ajax_dict/$', view.ajax_dict, name='ajax-dict'),
     url(r'^ajax_readurl/$', view.ajax_readurl, name='ajax_readurl'),
+    url(r'getdata/$',view.getdata),
 ]

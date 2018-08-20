@@ -156,3 +156,28 @@ def ajax_readurl(request):
         value = "failed"
     # return HttpResponse(str(value["bookname"]))
     return HttpResponse(json.dumps(value))
+
+
+@csrf_exempt
+def getdata(request):
+    value = {}
+    num = request.GET.get('num')
+    api = 'https://api.douban.com/v2/book/'
+    url = api + str(num)
+    try:
+        # 正常获取api信息
+        content = url_req.urlopen(url)
+        data = json.loads(content.read())
+        # value = data
+        value["code"] = 1
+        value["bookname"] = data['title']
+    except:
+        # 获取api信息失败
+        if num == "110":
+            value["code"] = 0
+            value["bookname"] = "try success"
+        else:
+            value["code"] = 0
+            value["bookname"] = "book not found"
+    # return HttpResponse(str(value["bookname"]))
+    return HttpResponse(json.dumps(value))

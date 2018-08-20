@@ -3,22 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <title>try-ajax2</title>
-    <script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js">
-    </script>
-    <script>
-    $(document).ready(function(){
-        $("button").click(function(){
-                $("#div1").html("success");
-                    {#.load("/try/ajax/demo_test.txt");#}
-            });
-        });
-    </script>
 </head>
 <body>
 
+
 <h2>AJAX</h2>
-<button>请求数据</button>
-<div id="div1"></div>
+<p>输入<input type="text" id="test" name="q" value="26393342" ></p>
+
+
+<div id="div2">书名</div>
+<button id="btn1">查询书名</button>
+
+<button id="btn2">弹出数据</button>
+
+{#<p id="dict_result"></p>#}
+
+    <script src="http://apps.bdimg.com/libs/jquery/1.11.1/jquery.min.js">
+    </script>
+
+    <script>
+    {#var ret = {{ ret }}#}
+    $(document).ready(function() {
+        $("#btn1").click(function () {
+            $.ajax({
+                url: 'http://127.0.0.1:8000/ajax_readurl/',
+                type: "post",
+                async:true,
+                data: {name: $('#test').val(),},
+                timeout: 10000,
+                dataType: "json",
+                success: function (result) {
+                    console.log(result.bookname);
+                    $("#div2").html(result.bookname)
+                }
+                });
+
+            });
+        {#$("#btn2").click(function(ret){#}
+        {#    alert($("#test").val(ret + "aaa"))});#}
+        {##}
+        {#$("#btn2").click(function(ret){#}
+        {#$.get("{% url 'ajax-dict' %}", function(ret){#}
+        {#    $('#div2').val(ret)#}
+        {#    });#}
+        $("#btn2").click(function () {
+            $.ajax({
+                url: 'http://127.0.0.1:8000/ajax_dict/',
+                type: "post",
+                async:true,
+                data: {name: $('#test').val(),},
+                timeout: 10000,
+                dataType: "text",
+                success: function (result) {
+                    alert(result)
+                }
+                });
+
+            });
+            // 字典 dict
+            {#$("#btn2").click(function(){#}
+            {#    $('#dict').click(function(){#}
+            {#      $.getJSON("{% url 'ajax-dict' %}",function(ret){#}
+            {#          //返回值 ret 在这里是一个字典#}
+            {#          $('#dict_result').append(ret.twz + '<br>');#}
+            {#          // 也可以用 ret['twz']#}
+            {#      })#}
+            {#    })#}
+            {#    });#}
+
+    });
+    </script>
 
 </body>
 </html>

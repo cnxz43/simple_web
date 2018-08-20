@@ -2,14 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>try-ajax</title>
+    <title>try-ajax1</title>
+        <script src="http://apps.bdimg.com/libs/jquery/1.11.1/jquery.min.js"></script>
     <script type="text/javascript">
     $("#btnTerminalSvr").click(function(){
         $.ajax({
             url: './terminal_svr',
-            type: 'POST',
-            data: {},
-            dataType: 'json',
+            type: "post",
             timeout: 10000,
             success: function(result) {
                 if ( result.result == "post_success" ) {
@@ -21,13 +20,15 @@
         });
     });
     </script>
+
 </head>
 <body>
 <!--<h2>一键网元隔离</h2><-->
 <!--<button type="button" onclick="loadXMLDoc()" id="btn1">提交申请</button>-->
 <!--<div id="myDiv"></div>-->
 
-<h2 id="ntfText" >就绪</h2></br>
-<button type="button" class="btn btn-success" id="btnTerminalSvr">关闭服务器</button>
+
+<h2 id="ntfText" >test</h2>
+<button type="button" class="btn btn-success" id="btnTerminalSvr">button</button>
 </body>
 </html>

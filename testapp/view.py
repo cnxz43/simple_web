@@ -74,10 +74,85 @@ def terminal_svr(request):
     # # doSomething to terminal svr
     a = {}
     a["result"] = "post_success"
-    # # return HttpResponse(json.dumps(a), content_type='application/json')
-    return render(request, "ajax.html", a)
+    return HttpResponse(json.dumps(a), content_type='application/json')
+    # return render(request, "ajax.html", a)
+
+
+
+from django.http import JsonResponse
+@csrf_exempt
+def ajax_mainpage(request):
+    # value={}
+    # api = 'https://api.douban.com/v2/book/'
+    #
+    # # return JsonResponse(json.dumps(name_dict), content_type='application/json')
+    # if request.method == 'POST':
+    #     url = api + request.POST.get('input')
+    #     print ("url:",url        )
+    #     try:
+    #         # 正常获取api信息
+    #         content = url_req.urlopen(url)
+    #         data = json.loads(content.read())
+    #         value['rlt'] = data['title']
+    #     except:
+    #         # 获取api信息失败
+    #         if request.POST['input'] == "110":
+    #             value['rlt'] = "try success"
+    #         else:
+    #             value['rlt'] = "book not found"
+
+    return render(request, "ajax2.html")
+
+@csrf_exempt
+def ajax_dict(request):
+    value = "a1111"
+    # api = 'https://api.douban.com/v2/book/'
+    # if request.method == 'POST':
+    #     url = api + request.POST.get('name')
+    #     try:
+    #         # 正常获取api信息
+    #         content = url_req.urlopen(url)
+    #         data = json.loads(content.read())
+    #         value = data['title']
+    #     except:
+    #         # 获取api信息失败
+    #         if request.POST['input'] == "110":
+    #             value = "try success"
+    #         else:
+    #             value = "book not found"
+    # else:
+    #     value = "failed"
+
+
+    if request.method == 'POST':
+        value = request.POST.get('name')
+    else:
+        value = "failed"
+
+    return HttpResponse(str(value))
 
 
 @csrf_exempt
-def ajax_try(request):
-    return render(request, "ajax2.html")
+def ajax_readurl(request):
+    value = {}
+    api = 'https://api.douban.com/v2/book/'
+    if request.method == 'POST':
+        url = api + request.POST.get('name')
+        try:
+            # 正常获取api信息
+            content = url_req.urlopen(url)
+            data = json.loads(content.read())
+            value["code"] = 1
+            value["bookname"] = data['title']
+        except:
+            # 获取api信息失败
+            if request.POST['name'] == "110":
+                value["code"] = 0
+                value["bookname"] = "try success"
+            else:
+                value["code"] = 0
+                value["bookname"] = "book not found"
+    else:
+        value = "failed"
+    # return HttpResponse(str(value["bookname"]))
+    return HttpResponse(json.dumps(value))

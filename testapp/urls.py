@@ -26,7 +26,9 @@ from django.conf.urls import url
 from . import view
 
 urlpatterns = [
-    url(r'^select$', view.select_post),
+    url(r'^select$', view.ajax_mainpage),
     url(r'^terminal_svr$', view.terminal_svr, name='terminal_svr'),
-    url(r'^ajax_try$', view.ajax_try),
+    # url(r'^ajax_try$', view.ajax_try),
+    url(r'^ajax_dict/$', view.ajax_dict, name='ajax-dict'),
+    url(r'^ajax_readurl/$', view.ajax_readurl, name='ajax_readurl'),
 ]

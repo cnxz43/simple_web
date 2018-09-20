@@ -5,3 +5,4 @@
 2018-08-16 05:50:35,055 - testapp.view - INFO - search mode 1, context: 110 result: try success
 2018-08-17 08:53:57,786 - testapp.view - INFO - search mode 1, context: 110 result: try success
 2018-08-17 08:54:04,873 - testapp.view - INFO - search mode 1, context: 123 result: book not found
+test1
